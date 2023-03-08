@@ -27,17 +27,17 @@ if [ $? -eq 1 ]
 then
   GITLEAKS_RESULT=$(echo -e "\e[31m🛑 STOP! Gitleaks encountered leaks")
   echo "$GITLEAKS_RESULT"
-  echo "exitcode=$GITLEAKS_RESULT" >> GITHUB_ENV
+  echo "exitcode=$GITLEAKS_RESULT" >> $GITHUB_ENV
   echo "----------------------------------"
   echo "$CAPTURE_OUTPUT"
-  echo "result=$CAPTURE_OUTPUT" >> GITHUB_ENV
+  echo "result=$CAPTURE_OUTPUT" >> $GITHUB_ENV
     echo "----------------------------------"
   echo -e $DONATE_MSG
   exit 1
 else
   GITLEAKS_RESULT=$(echo -e "\e[32m✅ SUCCESS! Your code is good to go!")
   echo "$GITLEAKS_RESULT"
-  echo "exitcode=$GITLEAKS_RESULT" >> GITHUB_ENV
+  echo "exitcode=$GITLEAKS_RESULT" >> $GITHUB_ENV
   echo "------------------------------------"
   echo -e $DONATE_MSG
 fi
